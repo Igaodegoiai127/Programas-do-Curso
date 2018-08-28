@@ -1,0 +1,71 @@
+unit CodigoAula14;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    GroupBox2: TGroupBox;
+    NumAcertados: TListBox;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Num1: TEdit;
+    Num2: TEdit;
+    Num3: TEdit;
+    Num4: TEdit;
+    Num5: TEdit;
+    Verificar: TButton;
+    procedure VerificarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.VerificarClick(Sender: TObject);
+ var
+  Apostados : array[0..5] of integer;
+  Sorteados : array[0..5] of integer;
+  i,j : integer;
+begin
+   Apostados[1] := StrToInt(Num1.text);
+   Apostados[2] := StrToInt(Num2.text);
+   Apostados[3] := StrToInt(Num3.text);
+   Apostados[4] := StrToInt(Num4.text);
+   Apostados[5] := StrToInt(Num5.text);
+
+   Randomize;
+
+   Sorteados[1] := Random(50);
+   Sorteados[2] := Random(50);
+   Sorteados[3] := Random(50);
+   Sorteados[4] := Random(50);
+   Sorteados[5] := Random(50);
+
+   for i:=0 to 4 do
+    begin
+     j:= 0;
+      for j:= i+1 to 5 do
+       if(Apostados[i] = Sorteados[j]) then
+        NumAcertados.items.add(IntToStr(Apostados[i]));
+    end;
+
+
+end;
+
+end.
