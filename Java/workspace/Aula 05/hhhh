@@ -1,0 +1,121 @@
+import java.util.Scanner;
+public class Hotel
+{
+
+public static class Cliente
+{
+private String nome;
+private boolean disponivel;
+
+}
+
+
+public static void main (String args[])
+{
+Cliente hotel [];
+hotel = new Cliente [20];
+for (int i = 0; i<20; i++)
+{
+hotel[i] = new Cliente();
+}
+Scanner input = new Scanner (System.in);
+int i,v, opc;
+int quartos[] = new int [20];
+
+
+
+
+do
+{
+
+System.out.println("***************************************************************");
+System.out.println("***************************************************************");
+System.out.println("**********-----------HOTEL JAVA-----------**********");
+System.out.println("***************************************************************");
+System.out.println("***************************************************************");
+System.out.println("");
+System.out.println("---------------------------------------------------------------");
+System.out.println("");
+System.out.println("");
+System.out.println("---------------------------------------------------------------");
+System.out.println("1-Cadastrar");
+System.out.println("2-Remover");
+System.out.println("3-Remover Todos");
+System.out.println("4-Imprimir");
+System.out.println("---------------------------------------------------------------");
+System.out.println("5-Sair");
+System.out.println("---------------------------------------------------------------");
+System.out.println("");
+System.out.println("Escolha a alternativa desejada:");
+opc = input.nextInt();
+
+
+
+switch(opc)
+{
+
+case 1:
+System.out.println("Escolha o Quarto");
+i= input.nextInt();
+if (i <20){
+
+if (quartos[i]== 0)
+{
+
+System.out.printf("Hospede registrado com sucesso no quarto %dn", i);
+quartos[i]=1;
+
+}else
+{
+System.out.println("Quarto Ocupado!");
+}
+}else{
+System.out.println("Quarto Inexistente");
+}
+break;
+case 2:
+System.out.println("Escolha o Quarto");
+i= input.nextInt();
+if (quartos[i]==0)
+{
+System.out.printf("Quarto %d encontra-se vazio no momento!n", i);
+}else
+{
+System.out.println("Hóspede removido do quarto com sucesso!");
+quartos[i]=0;
+}
+break;
+case 3:
+System.out.println("Todos os hóspedes removidos com sucesso");
+for(v=0; v<20;v++)
+{
+quartos[v]=0;
+}
+break;
+case 4:
+System.out.prinln("Listagem de quartos!");
+for (i=0; i<quartos.lenght; i++)
+{
+if (quartos[i]==0
+{
+System.out.printf("Quarto: %d: ----Livren",i);
+}else
+{
+System.out.printf("Quarto: %d: ----Ocupadon",i);
+}
+}
+break;
+
+default:
+System.out.println("Alternativa invalida");
+}
+
+
+
+
+
+}while(opc!=5);
+}
+
+
+}
